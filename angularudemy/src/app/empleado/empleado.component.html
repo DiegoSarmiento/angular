@@ -1,2 +1,85 @@
 <p>empleado works!</p>
 <h1>{{titulo}}</h1>
+
+
+<strong>Empleado Estrella</strong>
+
+<div *ngIf="trabajador_externo == true">
+    <button (click)="cambiarExterno(false)">Mostrar Trabajador</button>
+    <ul>
+        <li>{{trabajadores[0].nombre}}</li>
+        <li>{{trabajadores[0].edad}}</li>
+        <li>{{trabajadores[0].cargo}}</li>
+        <li *ngIf="trabajadores[0].contratado == true">Está Contratado</li>
+        <li *ngIf="trabajadores[0].contratado == false">No está Contratado</li>
+    </ul>
+</div>
+
+<div *ngIf="trabajador_externo == false">
+    <button (click)="cambiarExterno(true)">Mostrar Empleado</button>
+    <ul>
+        <li>{{empleado.nombre}}</li>
+        <li>{{empleado.edad}}</li>
+        <li>{{empleado.cargo}}</li>
+        <li *ngIf="empleado.contratado == true">Está Contratado</li>
+        <li *ngIf="empleado.contratado == false">No está Contratado</li>
+    </ul>
+</div>
+
+<h3>Listado de Empleados</h3>
+<div *ngFor="let empleados of trabajadores; let i = index">
+    <p>Empleado {{i+1}}:</p>
+    <ul >
+        <li>{{empleados.nombre}}</li>
+        <li>{{empleados.edad}}</li>
+        <li>{{empleados.cargo}}</li>
+        <li *ngIf="empleados.contratado == true">Está Contratado</li>
+        <li *ngIf="empleados.contratado == false">No está Contratado</li>
+    </ul>
+</div>
+
+<hr>
+
+<h3>Colores Switch</h3>
+<ul [ngSwitch] = "color">
+    <li *ngSwitchCase="'red'" [ngStyle]="{
+        'background': color,
+        'color'   : 'white',
+        'padding' : '20px'
+    }">
+        Es de color Rojo
+    </li>
+    <li *ngSwitchCase="'green'" [ngStyle]="{
+        'background': color,
+        'color'   : 'white',
+        'padding' : '20px'
+    }">
+        Es de color Verde
+    </li>
+    <li *ngSwitchCase="'blue'" [ngStyle]="{
+        'background': color,
+        'color'   : 'white',
+        'padding' : '20px'
+    }">
+        Es de color Azul
+    </li>
+</ul>
+
+<hr>
+
+<h3>Selector de Colores</h3>
+<input type="text" [(ngModel)]="color_seleccionado">
+<pre    
+    [style.border] = "color_seleccionado == 'red' ? '5px solid black' : '1px solid green'"
+    [class.bordeAzul] = "color_seleccionado == 'blue'"
+>
+    <strong>Color Seleccionado</strong>
+    {{color_seleccionado}}
+</pre>
+<div [ngStyle]="{'background': color_seleccionado,
+                 'width': '200px',
+                 'height': '200px',
+                 'float': 'right',
+                 'margin-right': '70%'
+                }"></div>
+<div style="clear:both"></div>
