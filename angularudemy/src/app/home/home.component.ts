@@ -9,12 +9,24 @@ import { RopaService } from "../services/ropa.service";
 })
 export class HomeComponent implements OnInit {
   public titulo="Home";
+  public listaRopa:Array<string>;
+  public prenda_a_guardar:string;
   constructor(
     private _ropaService: RopaService
   ) {}
 
   ngOnInit() {
-    console.log(this._ropaService.prueba(7));
+    this.listaRopa = this._ropaService.getRopa();
+    console.log(this.listaRopa);
+  }
+
+  guardarPrenda(){
+    this._ropaService.addRopa(this.prenda_a_guardar);
+    this.prenda_a_guardar = null;
+  }
+
+  eliminarPrenda(index:number){
+    this._ropaService.deleteRopa(index);
   }
 
 }
