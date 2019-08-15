@@ -15,11 +15,13 @@ export class ContactoComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
     this._route.params.forEach(( params: Params)=>{
       this.parametro = params['page'];
     });
+  }
 
+  redirigir(){
+    this._router.navigate(['/contacto','angularDiego']);
   }
 
 }
