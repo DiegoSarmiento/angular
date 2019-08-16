@@ -2,7 +2,7 @@
 <br>
 {{fecha | date: 'dd/MM/yyyy'}}
 <br>
-{{fecha | date: 'fullDate'}}
+{{fecha | date: 'fullDate' | uppercase}}
 <br>
 <br>
 <input type="text" [(ngModel)] = "prenda_a_guardar"><button (click)="guardarPrenda()">Añadir Prenda</button>
