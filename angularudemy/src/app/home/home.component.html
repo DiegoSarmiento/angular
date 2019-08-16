@@ -1,5 +1,10 @@
 <p>{{titulo}}</p>
 <br>
+{{fecha | date: 'dd/MM/yyyy'}}
+<br>
+{{fecha | date: 'fullDate'}}
+<br>
+<br>
 <input type="text" [(ngModel)] = "prenda_a_guardar"><button (click)="guardarPrenda()">Añadir Prenda</button>
 <br>
 <p *ngIf="prenda_a_guardar">La prenda a guardar es: <strong>{{prenda_a_guardar}}</strong></p>
