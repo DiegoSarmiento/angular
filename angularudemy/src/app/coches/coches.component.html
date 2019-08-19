@@ -1,6 +1,6 @@
 <p>Componente de coches</p>
 
-<form #formCoche="ngForm" (ngSubmit)="onSubmit()">
+<form #formCoche="ngForm" (ngSubmit)="onSubmit(); formCoche.reset();">
     <br>
     <label>Nombre: </label>
     <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="coche.nombre" required>
@@ -13,6 +13,15 @@
     <label>Color: </label>
     <input type="text" name="color" #color="ngModel" [(ngModel)]="coche.color" required pattern="[a-zA-Z#]+">
     <span *ngIf="color.touched && !color.valid">El color del coche es incorrecto</span>
-
-    <input type="submit" value="Guardar">
+    <br>
+    <input type="submit" value="Guardar" [disabled]="!formCoche.form.valid">
 </form>
+
+<div>
+    <h4>Lista de coches</h4>
+    <ul>
+        <li *ngFor="let coche of coches">
+            {{coche.nombre}} - {{coche.caballaje}} - {{coche.color}}
+        </li>
+    </ul>
+</div>
