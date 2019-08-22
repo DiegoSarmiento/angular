@@ -13,6 +13,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { ConversorPipe } from "./pipes/conversor.pipe";
 import { CochesComponent } from './coches/coches.component';
 import { HttpClientModule } from "@angular/common/http";
+import { PlantillasComponent } from './plantillas/plantillas.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from "@angular/common/http";
     HomeComponent,
     ContactoComponent,
     ConversorPipe,
-    CochesComponent
+    CochesComponent,
+    PlantillasComponent
   ],
   imports: [
     BrowserModule,
