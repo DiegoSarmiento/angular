@@ -25,3 +25,13 @@
         </li>
     </ul>
 </div>
+
+<div>
+    <h4>Lista de articulos</h4>
+    <ul *ngIf="articulos">
+        <li *ngFor="let articulo of articulos">
+            {{articulo.id}} - {{articulo.title}}
+        </li>
+    </ul>
+    <span *ngIf="!articulos">Cargando Lista..</span>
+</div>
